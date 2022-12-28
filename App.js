@@ -6,7 +6,10 @@ class Subject extends Component {
   render(){
     return (
       <header>
-        <h1>{this.props.sub}</h1>
+        <h1>
+          {this.props.title}
+        </h1>
+        {this.props.sub} 
         {this.props.desc}
         
       </header>
@@ -15,10 +18,22 @@ class Subject extends Component {
 }
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      Subject: {
+        title : "WEB",
+        sub : "World wid Web"
+      }
+    }
+  }
   render(){
     return (
      <div className="App">
-        <Subject title="WEB" sub="world wide web!"></Subject>
+        <Subject 
+          title={this.state.Subject.title} 
+          sub={this.state.Subject.sub}>
+        </Subject>
         <Subject title="React" desc="For UIASDASDAS"></Subject>
 
      </div> 
